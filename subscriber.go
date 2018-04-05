@@ -17,8 +17,6 @@ func init() {
 func subscriber(w http.ResponseWriter, r *http.Request) {
 	ctx := appengine.NewContext(r)
 
-	//Buffer the body
-	// Put the body back for FormatRequest to read it
 	body, _ := ioutil.ReadAll(r.Body)
 
 	log.Infof(ctx, "user %v ", string(body))
