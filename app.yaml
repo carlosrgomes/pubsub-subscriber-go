@@ -1,0 +1,21 @@
+runtime: go
+api_version: go1.8
+threadsafe: true
+
+service: subscribergo
+
+
+automatic_scaling:
+  max_idle_instances: automatic 
+  min_pending_latency: 60ms  
+  max_pending_latency: automatic
+  max_concurrent_requests: 30
+
+handlers:
+- url: /_ah/push-handlers/.*
+  script: _go_app
+  login: admin
+
+
+
+
